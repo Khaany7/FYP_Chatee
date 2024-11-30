@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "4006578297",
+    "project_id": "chatee-fyp24-7ef27",
+    "storage_bucket": "chatee-fyp24-7ef27.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4006578297:android:055edc715de69d5089aca8",
+        "android_client_info": {
+          "package_name": "com.example.chatee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgDIJR4Pb3hUEo1g-w6Lk57U9J4pAE8RA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
