@@ -1,6 +1,11 @@
+import 'dart:io';
+
 import 'package:chatee/auth/opt_screen.dart';
+import 'package:chatee/auth/screens/repository/common_firebase_storage.dart';
 import 'package:chatee/auth/screens/user_information_screen.dart';
 import 'package:chatee/common/utils/utils.dart';
+import 'package:chatee/models/user_model.dart';
+import 'package:chatee/screens/mobile_layout_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -61,6 +66,44 @@ class AuthRepository extends StatelessWidget {
       );
     } on FirebaseAuthException catch (e) {
       showSnackBar(context: context, content: e.message!);
+    }
+  }
+
+  void saveUserDataToFirebase({
+    required String name,
+    required File? profilePic,
+    required BuildContext context,
+    required ProviderRef ref,
+  }) async {
+    try {
+      String uid = auth.currentUser!.uid;
+      String photoUrl =
+          'https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png';
+      if (profilePic != null) {
+        photoUrl = await ref
+            .read(CommonFirebaseStorageRepositoryProvider)
+            .storeFileToFirebase(
+              'profile_pics/$uid',
+              profilePic,
+            );
+      }
+      var user = UserModel(
+        uid: uid,
+        name: name,
+        profilepic: photoUrl,
+        isonline: true,
+        phoneNumber: auth.currentUser!.uid,
+        groupId: [],
+      );
+      await firestore.collection('users').doc(uid).set(user.toMap());
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MobileLayoutScreen(),
+          ),
+          (route) => false);
+    } catch (e) {
+      showSnackBar(context: context, content: e.toString());
     }
   }
 }

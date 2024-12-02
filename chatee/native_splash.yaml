@@ -1,0 +1,10 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  color: "#ffffff" # Background color of the splash screen
+  image: assets/chateelogo.png # Path to your splash screen image
+  android_gravity: center # Gravity for Android (optional)
+  ios_content_mode: scaleAspectFill # Content mode for iOS (optional)
+  web_image_mode: center # Image mode for Web (optional)
+  fullscreen: true # Enable fullscreen mode (optional)

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Whatsapp UI',
+      title: 'Chatee',
       theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: backgroundColor,
           appBarTheme: const AppBarTheme(
