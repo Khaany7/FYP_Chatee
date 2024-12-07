@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:chatee/auth/opt_screen.dart';
-import 'package:chatee/auth/screens/repository/common_firebase_storage.dart';
-import 'package:chatee/auth/screens/user_information_screen.dart';
+import 'package:chatee/features/auth/opt_screen.dart';
+import 'package:chatee/features/auth/screens/repository/common_firebase_storage.dart';
+import 'package:chatee/features/auth/screens/user_information_screen.dart';
 import 'package:chatee/common/utils/utils.dart';
 import 'package:chatee/models/user_model.dart';
 import 'package:chatee/screens/mobile_layout_screen.dart';
@@ -21,6 +21,17 @@ class AuthRepository extends StatelessWidget {
   final FirebaseFirestore firestore;
   const AuthRepository(
       {super.key, required this.auth, required this.firestore});
+
+  Future<UserModel?> getCurrentUserData() async {
+    var userData =
+        await firestore.collection('users').doc(auth.currentUser?.uid).get();
+
+    UserModel? user;
+    if (userData.data() != null) {
+      return UserModel.fromMap(userData.data()!);
+    }
+    return user;
+  }
 
   void signInWithPhoneNumber(BuildContext context, String phoneNumber) async {
     try {

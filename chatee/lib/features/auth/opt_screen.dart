@@ -1,4 +1,4 @@
-import 'package:chatee/auth/screens/repository/controller/auth_controller.dart';
+import 'package:chatee/features/auth/screens/repository/controller/auth_controller.dart';
 import 'package:chatee/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

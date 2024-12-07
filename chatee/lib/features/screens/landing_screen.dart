@@ -1,4 +1,4 @@
-import 'package:chatee/auth/screens/login_screen.dart';
+import 'package:chatee/features/auth/screens/login_screen.dart';
 import 'package:chatee/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 

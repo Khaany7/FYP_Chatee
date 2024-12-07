@@ -1,6 +1,6 @@
-import 'package:chatee/auth/opt_screen.dart';
-import 'package:chatee/auth/screens/login_screen.dart';
-import 'package:chatee/auth/screens/user_information_screen.dart';
+import 'package:chatee/features/auth/opt_screen.dart';
+import 'package:chatee/features/auth/screens/login_screen.dart';
+import 'package:chatee/features/auth/screens/user_information_screen.dart';
 import 'package:chatee/common/widgets/error.dart';
 import 'package:chatee/screens/mobile_layout_screen.dart';
 import 'package:chatee/screens/web_layout_screen.dart';

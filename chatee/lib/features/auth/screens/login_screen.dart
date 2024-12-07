@@ -1,4 +1,4 @@
-import 'package:chatee/auth/screens/repository/auth_repository.dart';
+import 'package:chatee/features/auth/screens/repository/auth_repository.dart';
 import 'package:chatee/common/utils/utils.dart';
 import 'package:chatee/common/widgets/custom_button.dart';
 import 'package:country_picker/country_picker.dart';
