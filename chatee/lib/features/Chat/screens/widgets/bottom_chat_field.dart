@@ -11,13 +11,26 @@ class BottomChatField extends StatefulWidget {
 }
 
 class _BottomChatFieldState extends State<BottomChatField> {
+  bool isShowSendButton = false;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
-          child: TextField(
+          child: TextFormField(
+            onChanged: (val) {
+              if (val.isNotEmpty) {
+                setState(() {
+                  isShowSendButton = true;
+                });
+              } else {
+                setState(() {
+                  isShowSendButton = false;
+                });
+              }
+            },
             decoration: InputDecoration(
+              //swswsw
               filled: true,
               fillColor: mobileChatBoxColor,
               prefixIcon: Padding(
@@ -80,8 +93,8 @@ class _BottomChatFieldState extends State<BottomChatField> {
         CircleAvatar(
           backgroundColor: const Color(0xFF128C7E),
           radius: 25.0,
-          child: const Icon(
-            Icons.send,
+          child: Icon(
+            isShowSendButton ? Icons.send : Icons.mic,
             color: Colors.white,
           ),
         ),
