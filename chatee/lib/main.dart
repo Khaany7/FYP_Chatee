@@ -2,7 +2,6 @@ import 'package:chatee/features/auth/screens/repository/controller/auth_controll
 import 'package:chatee/colors.dart';
 import 'package:chatee/common/widgets/Loader.dart';
 import 'package:chatee/common/widgets/error.dart';
-import 'package:chatee/features/screens/landing_screen.dart';
 import 'package:chatee/firebase_options.dart';
 import 'package:chatee/router.dart';
 import 'package:chatee/screens/mobile_layout_screen.dart';
@@ -36,7 +35,8 @@ class MyApp extends ConsumerWidget {
       home: ref.watch(userDataAuthProvider).when(
             data: (user) {
               if (user == null) {
-                return const LandingScreen();
+                // return const LandingScreen();
+                return const MobileLayoutScreen();
               } else {
                 return const MobileLayoutScreen();
               }

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:chatee/features/auth/opt_screen.dart';
-import 'package:chatee/features/auth/screens/repository/common_firebase_storage.dart';
+import 'package:chatee/common/Repositories/common_firebase_storage.dart';
 import 'package:chatee/features/auth/screens/user_information_screen.dart';
 import 'package:chatee/common/utils/utils.dart';
 import 'package:chatee/models/user_model.dart';
@@ -103,7 +103,7 @@ class AuthRepository extends StatelessWidget {
         name: name,
         profilepic: photoUrl,
         isonline: true,
-        phoneNumber: auth.currentUser!.uid,
+        phoneNumber: auth.currentUser!.phoneNumber!,
         groupId: [],
       );
       await firestore.collection('users').doc(uid).set(user.toMap());
@@ -116,5 +116,8 @@ class AuthRepository extends StatelessWidget {
     } catch (e) {
       showSnackBar(context: context, content: e.toString());
     }
+  }
+  Stream<UserModel>userData(String userId){
+    return firestore.collection('users').doc(userId).snapshots().map((event) => UserModel.fromMap(event.data()!));
   }
 }
